@@ -1,22 +1,27 @@
-import inquirer from "inquirer";
+import { express } from "express";
+import { pkg } from "body-parser";
+import { router } from "./routes/router.js";
 
-inquirer.prompt(
-    [
-        {
-            type: 'input',
-            name: 'nome',
-            message: 'Qual seu nome?'
-        },
-        {
-            type: 'list',
-            name: 'idade',
-            message: 'Qual sua idade?',
-            choices: [
-                "0 a 18",
-                "18+"
-            ]
-        }
-    ]
-).then((answers) => {
-    console.log(`Oi ${answers.nome} com ${answers.idade} anos de vida!`);
-});
+import sequelize from "./utils/database.js";
+import association from "./models/Associations.js"
+
+const app = express();
+const { json, urlencoded } = pkg;
+
+app.use(json())
+app.use(urlencoded({ extended: true }));
+
+(async () => {
+    try {
+        association.associations();
+        await sequelize.sync();
+        app.listen(3000, function () {
+            console.log("listening on port 3000");
+        });
+    } catch (error) {
+        console.log(error);
+    }
+})();
+
+
+app.use("/", router);
