@@ -10,10 +10,12 @@
   "author": "Jao",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "inquirer": "^9.2.14",
     "path": "^0.12.7",
+    "pg": "^8.11.3",
     "sequelize": "^6.37.0",
     "url": "^0.11.3"
   }

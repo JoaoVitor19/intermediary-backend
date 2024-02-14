@@ -1,9 +1,9 @@
 import { Sequelize } from "sequelize";
 
 const sequelize = new Sequelize(
-    'intermediary-db',
-    'jao',
-    'root', 
+    'intermediary-db', //DATABASE NAME
+    'postgres', // USERNAME
+    'root',  //PASSWORD
     {
         host: 'localhost',
         dialect: 'postgres',
