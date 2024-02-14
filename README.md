@@ -13,6 +13,8 @@ Antes de começar, certifique-se de ter o Node.js e o MongoDB instalados em sua 
 # Instale as dependências do projeto
 npm install
 
+# Configure a conexão do banco de dados em "utils/database.js"
+
 Inicie o servidor Node.js:
 node index.js
 
